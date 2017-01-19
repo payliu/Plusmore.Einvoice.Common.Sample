@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Plusmore.Einvoice.Common.Model.C0401;
+using Plusmore.Einvoice.Common.Sample.Helper;
 
 namespace Plusmore.Einvoice.Common.Sample.Model.C0401
 {
@@ -50,10 +51,10 @@ namespace Plusmore.Einvoice.Common.Sample.Model.C0401
             Logger.Debug( im.ToJson() );
 
             // 儲存 上傳的檔案 
-            im.Save( String.Format( @"{0}\delme\C0401\C0401-{1}.json", this._path, im.Main.InvoiceNumber ) );
+            im.Save( String.Format( @"{0}\C0401\C0401-{1}.json", MyConfig.Folder, im.Main.InvoiceNumber ) );
 
             // 零元發票無法列印, 會列印明細 
-            im.Print( Prt, this.AsKey, hasPrintList: true, reprint: false );
+            im.Print( Prt, MyConfig.AesKey, hasPrintList: true, reprint: false );
         }
     }
 }

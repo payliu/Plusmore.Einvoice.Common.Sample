@@ -10,6 +10,7 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NLog;
+using Plusmore.Einvoice.Common.Sample.Helper;
 using Plusmore.Utility.EscPos.Controller;
 using Plusmore.Utility.EscPos.Model.WinPos;
 
@@ -33,7 +34,7 @@ namespace Plusmore.Einvoice.Common.Sample.Printer
                     return _printer;
                 }
 
-                _printer = new Wpt810Printer( "COM4" )
+                _printer = new Wpt810Printer( MyConfig.PrinterPort )
                 {
                     LogoHeight = 66
                 };

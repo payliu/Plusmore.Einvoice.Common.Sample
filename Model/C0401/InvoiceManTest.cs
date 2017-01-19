@@ -1,6 +1,6 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NLog;
+using Plusmore.Einvoice.Common.Sample.Helper;
 using Plusmore.Utility.EscPos.Model.WinPos;
 
 namespace Plusmore.Einvoice.Common.Sample.Model.C0401
@@ -9,11 +9,8 @@ namespace Plusmore.Einvoice.Common.Sample.Model.C0401
     public partial class InvoiceManTest
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
-        public readonly string CompanyName = "多多資訊";
-        public readonly string AsKey = "DB2085D96577312E83E4DA5E826075FF";
-        private readonly string _path = Environment.GetFolderPath( Environment.SpecialFolder.Desktop );
-
-        public static Wpt810Printer Prt = new Wpt810Printer( "COM4" );
+        
+        public static Wpt810Printer Prt = new Wpt810Printer( MyConfig.PrinterPort );
 
         #region ClassInitialize and Cleanup
 

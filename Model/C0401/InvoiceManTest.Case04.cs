@@ -9,6 +9,7 @@ using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Plusmore.Einvoice.Common.Helper;
 using Plusmore.Einvoice.Common.Model.General;
+using Plusmore.Einvoice.Common.Sample.Helper;
 
 namespace Plusmore.Einvoice.Common.Sample.Model.C0401
 {
@@ -49,10 +50,10 @@ namespace Plusmore.Einvoice.Common.Sample.Model.C0401
             Logger.Debug( im.ToJson() );
 
             // 儲存 上傳的檔案 
-            im.Save( String.Format( @"{0}\delme\C0401\C0401-{1}.json", this._path, im.Main.InvoiceNumber ) );
+            im.Save( String.Format( @"{0}\delme\C0401\C0401-{1}.json", MyConfig.Folder, im.Main.InvoiceNumber ) );
 
             // PrintMark = N, 無法列印 
-            im.Print( Prt, this.AsKey, hasPrintList: false, reprint: false );
+            im.Print( Prt, MyConfig.AesKey, hasPrintList: false, reprint: false );
 
             // 可選擇列印明細 
             im.PrintList( Prt );

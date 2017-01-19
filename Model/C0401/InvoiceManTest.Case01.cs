@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Plusmore.Einvoice.Common.Helper;
 using Plusmore.Einvoice.Common.Model.C0401;
 using Plusmore.Einvoice.Common.Model.General;
+using Plusmore.Einvoice.Common.Sample.Helper;
 
 namespace Plusmore.Einvoice.Common.Sample.Model.C0401
 {
@@ -89,10 +90,10 @@ namespace Plusmore.Einvoice.Common.Sample.Model.C0401
             Logger.Debug( im.ToJson() );
 
             // 儲存 上傳的檔案 
-            im.Save( String.Format( @"{0}\delme\C0401\C0401-{1}.json", this._path, im.Main.InvoiceNumber ) );
+            im.Save( String.Format( @"{0}\C0401\C0401-{1}.json", MyConfig.Folder, im.Main.InvoiceNumber ) );
 
             // hasPrintList=true: 消費者要求列印明細 reprint=true: 消費者因為發票破損無法辨識 qrcode, barcode...再列印一張"補印字樣"的發票, 需要記錄 補印 最好限印一次 
-            im.Print( Prt, this.AsKey, hasPrintList: false, reprint: false );
+            im.Print( Prt, MyConfig.AesKey, hasPrintList: false, reprint: false );
         }
 
         /// <summary>
@@ -129,10 +130,10 @@ namespace Plusmore.Einvoice.Common.Sample.Model.C0401
             Logger.Debug( im.ToJson() );
 
             // 儲存 上傳的檔案 
-            im.Save( String.Format( @"{0}\delme\C0401\C0401-{1}.json", this._path, im.Main.InvoiceNumber ) );
+            im.Save( String.Format( @"{0}\C0401\C0401-{1}.json", MyConfig.Folder, im.Main.InvoiceNumber ) );
 
             // 打統編的發票, 一律列印明細, 可以列印多次 不會有補印字樣, 
-            im.Print( Prt, this.AsKey );
+            im.Print( Prt, MyConfig.AesKey );
         }
     }
 }
