@@ -31,7 +31,7 @@ namespace Plusmore.Einvoice.Common.Sample.Model.C0501
 
             Logger.Debug( "CancelInvoiceMan.json: {0}", cim.ToJson() );
 
-            cim.Save( String.Format( @"{0}\delme\C0501\C0501-{1}.json", this._path, cim.InvoiceNumber ) );
+            cim.Save( String.Format( @"{0}\C0501\C0501-{1}.json", this._path, cim.InvoiceNumber ) );
         }
     }
 }

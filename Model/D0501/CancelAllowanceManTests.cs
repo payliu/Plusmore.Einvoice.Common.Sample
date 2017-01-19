@@ -33,7 +33,7 @@ namespace Plusmore.Einvoice.Common.Tests.Model.D0501
 
             Logger.Debug( "CancelAllowanceMan.json: {0}", cam.ToJson() );
 
-            cam.Save( String.Format( @"{0}\delme\D0501\D0501-{1}.json", this._path, cam.AllowanceNumber ) );
+            cam.Save( String.Format( @"{0}\D0501\D0501-{1}.json", this._path, cam.AllowanceNumber ) );
         }
     }
 }

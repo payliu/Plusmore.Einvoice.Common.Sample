@@ -85,7 +85,7 @@ namespace Plusmore.Einvoice.Common.Sample.Model.D0401
 
             Logger.Debug( "AllowanceMan.json: {0}", am.ToJson() );
 
-            am.Save( String.Format( @"{0}\delme\D0401\D0401-{1}.json", this._path, am.Main.AllowanceNumber ) );
+            am.Save( String.Format( @"{0}\D0401\D0401-{1}.json", this._path, am.Main.AllowanceNumber ) );
         }
     }
 }
