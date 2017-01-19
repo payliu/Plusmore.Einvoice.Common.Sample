@@ -58,8 +58,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Helper\MyConfig.cs" />
     <Compile Include="Helper\RandomNumberHelperTests.cs" />
     <Compile Include="Helper\ValidatorTests.cs" />
+    <Compile Include="Model\C0401\InvoiceManTest.Case00.Logo.cs" />
     <Compile Include="Model\C0401\InvoiceManTest.Case07.cs" />
     <Compile Include="Model\C0401\InvoiceManTest.Case06.cs" />
     <Compile Include="Model\C0401\InvoiceManTest.Case05.cs" />
