@@ -11,6 +11,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NLog;
 using Plusmore.Einvoice.Common.Model.D0401;
 using Plusmore.Einvoice.Common.Model.General;
+using Plusmore.Einvoice.Common.Sample.Helper;
 
 namespace Plusmore.Einvoice.Common.Sample.Model.D0401
 {
@@ -19,7 +20,6 @@ namespace Plusmore.Einvoice.Common.Sample.Model.D0401
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
-        private readonly string _path = Environment.GetFolderPath( Environment.SpecialFolder.Desktop );
 
         [TestMethod]
         public void AllowanceManTests_ToJson()
@@ -85,7 +85,7 @@ namespace Plusmore.Einvoice.Common.Sample.Model.D0401
 
             Logger.Debug( "AllowanceMan.json: {0}", am.ToJson() );
 
-            am.Save( String.Format( @"{0}\D0401\D0401-{1}.json", this._path, am.Main.AllowanceNumber ) );
+            am.Save( String.Format( @"{0}\D0401\D0401-{1}.json", MyConfig.Folder, am.Main.AllowanceNumber ) );
         }
     }
 }
