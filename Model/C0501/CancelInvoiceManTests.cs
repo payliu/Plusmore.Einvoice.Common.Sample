@@ -7,6 +7,7 @@ using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NLog;
 using Plusmore.Einvoice.Common.Model.C0501;
+using Plusmore.Einvoice.Common.Sample.Helper;
 
 namespace Plusmore.Einvoice.Common.Sample.Model.C0501
 {
@@ -15,7 +16,6 @@ namespace Plusmore.Einvoice.Common.Sample.Model.C0501
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
-        private readonly string _path = Environment.GetFolderPath( Environment.SpecialFolder.Desktop );
 
         [TestMethod]
         public void CancelInvoiceManTests_toJson()
@@ -31,7 +31,7 @@ namespace Plusmore.Einvoice.Common.Sample.Model.C0501
 
             Logger.Debug( "CancelInvoiceMan.json: {0}", cim.ToJson() );
 
-            cim.Save( String.Format( @"{0}\C0501\C0501-{1}.json", this._path, cim.InvoiceNumber ) );
+            cim.Save( String.Format( @"{0}\C0501\C0501-{1}.json", MyConfig.Folder, cim.InvoiceNumber ) );
         }
     }
 }
