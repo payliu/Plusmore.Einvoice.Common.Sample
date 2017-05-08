@@ -1,4 +1,11 @@
-﻿using System;
+﻿// File: Plusmore.Einvoice.Common.Sample / InvoiceManTest.Case01.cs
+// 
+// Author: Pay
+// Created: 2017-01-18 20:04
+// 
+// Modified: 2017-05-08 19:55
+
+using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Plusmore.Einvoice.Common.Helper;
@@ -20,47 +27,51 @@ namespace Plusmore.Einvoice.Common.Sample.Model.C0401
                     {
                         InvoiceNumber = "TW12345678",
                         InvoiceDate = new DateTime( 2016, 11, 4, 0, 24, 58 ),
-
                         Seller = new InvRole
                         {
                             Identifier = "24592118",
                             Name = "多多資訊有限公司"
                         },
-
                         PrintMark = YnEnum.Y,
                         RandomNumber = RandomNumberHelper.RandomNumber(),
-                        RelateNumber = "Order-12345"  //訂單編號, 列印明細用, 可以省略
+                        RelateNumber = "Order-12345" //訂單編號, 列印明細用, 可以省略
                     },
 
                     Detail = new InvoiceMan.InvDetail
                     {
                         ProductItems = new List<InvoiceMan.InvDetail.ProductItem>
-                    {
-                        new InvoiceMan.InvDetail.ProductItem
                         {
-                              SequenceNumber = "001",
-                              RelateNumber = "NX-200021", //產品編號, 列印明細用, 可以省略
-                              Description = "王子麵",
-                              UnitPrice = 10,
-                              Quantity = 10,
-                              Amount = 100
-                        },
-                        new InvoiceMan.InvDetail.ProductItem
-                        {
-                              SequenceNumber = "002",
-                              RelateNumber = "NT-300001",  //產品編號, 列印明細用, 可以省略
-                              Description = "可樂果",
-                              UnitPrice = 20,
-                              Quantity = 10,
-                              Amount = 200
+                            new InvoiceMan.InvDetail.ProductItem
+                            {
+                                SequenceNumber = "001",
+                                RelateNumber = "NX-200021", //產品編號, 列印明細用, 可以省略
+                                Description = "王子麵",
+                                UnitPrice = 10,
+                                Quantity = 10,
+                                Amount = 100
+                            },
+                            new InvoiceMan.InvDetail.ProductItem
+                            {
+                                SequenceNumber = "002",
+                                RelateNumber = "NT-300001", //產品編號, 列印明細用, 可以省略
+                                Description = "可樂果",
+                                UnitPrice = 20,
+                                Quantity = 10,
+                                Amount = 200
+                            }
                         }
-                    }
                     },
 
                     Amount = new InvoiceMan.InvAmount
                     {
                         SalesAmount = 300,
                         TotalAmount = 300
+                    },
+
+                    Extra = new InvoiceMan.InvExtra()
+                    {
+                        InvoiceNote = "餐廳409 竹北自強南 21-16\n機409021 序024859 03/22",
+                        ListNote = "5日內持發票(載具)及明細換發票\n2\n3\n4\n第5行 ..."
                     }
                 };
             }
@@ -106,10 +117,10 @@ namespace Plusmore.Einvoice.Common.Sample.Model.C0401
 
             im.Main.InvoiceNumber = "TW00000002";
 
-            im.Main.Buyer = new InvRole()
+            im.Main.Buyer = new InvRole
             {
                 Identifier = "12345678",
-                Name = "福氣有限公司"  //非必填
+                Name = "福氣有限公司" //非必填
             };
 
             // 打統編發票, 需要拆算 SalesAmount and TaxAmount 
