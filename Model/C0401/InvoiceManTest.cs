@@ -9,8 +9,10 @@ namespace Plusmore.Einvoice.Common.Sample.Model.C0401
     public partial class InvoiceManTest
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
-        
-        public static Wpt810Printer Prt = new Wpt810Printer( MyConfig.PrinterPort );
+
+        //public static Wpt810Printer Prt = new Wpt810Printer( MyConfig.PrinterPortOfWpt810 );
+
+        public static Wpk650Printer Prt = new Wpk650Printer( MyConfig.PrinterPortOfWpk650 );
 
         #region ClassInitialize and Cleanup
 
@@ -18,7 +20,6 @@ namespace Plusmore.Einvoice.Common.Sample.Model.C0401
         public static void InvoiceManTest_ClassInit( TestContext testContext )
         {
             Prt.Open();
-            Prt.InitializePrinter();
         }
 
         [ClassCleanup]

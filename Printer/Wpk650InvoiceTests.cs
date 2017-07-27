@@ -1,4 +1,4 @@
-﻿// File: Plusmore.Utility.EscPos.Tests.UnitTest / Wpt810InvoiceTests.cs
+﻿// File: Plusmore.Utility.EscPos.Tests.UnitTest / Wpk650InvoiceTests.cs
 // 
 // Author: Pay
 // Created: 2017-01-06 14:48
@@ -16,15 +16,15 @@ using Plusmore.Utility.EscPos.Model.WinPos;
 namespace Plusmore.Einvoice.Common.Sample.Printer
 {
     [TestClass]
-    public class Wpt810InvoiceTests
+    public class Wpk650InvoiceTests
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
         #region Printer
 
-        private static Wpt810Printer _printer;
+        private static Wpk650Printer _printer;
 
-        public static Wpt810Printer Printer
+        public static Wpk650Printer Printer
         {
             get
             {
@@ -33,7 +33,7 @@ namespace Plusmore.Einvoice.Common.Sample.Printer
                     return _printer;
                 }
 
-                _printer = new Wpt810Printer( MyConfig.PrinterPortOfWpt810 )
+                _printer = new Wpk650Printer( MyConfig.PrinterPortOfWpk650 )
                 {
                     LogoHeight = 66
                 };
@@ -82,12 +82,12 @@ namespace Plusmore.Einvoice.Common.Sample.Printer
         #endregion ClassInitialize and Cleanup
 
         [TestMethod]
-        public void Wpt810InvoiceTests_Test()
+        public void Wpk650InvoiceTests_Test()
         {
         }
 
         [TestMethod]
-        public void Wpt810InvoiceTests_PrintHelloWorld()
+        public void Wpk650InvoiceTests_PrintHelloWorld()
         {
             Printer.InitializePrinter();
 
@@ -97,7 +97,7 @@ namespace Plusmore.Einvoice.Common.Sample.Printer
         }
 
         [TestMethod]
-        public void Wpt810InvoiceTests_DetectPrinterStatus()
+        public void Wpk650InvoiceTests_DetectPrinterStatus()
         {
             PrinterStatus printerStatus = Printer.DetectPrinterStatus();
 
@@ -124,7 +124,7 @@ namespace Plusmore.Einvoice.Common.Sample.Printer
         }
 
         [TestMethod]
-        public void Wpt810InvoiceTests_DetectPaperStatus()
+        public void Wpk650InvoiceTests_DetectPaperStatus()
         {
             PaperStatus paperStatus = Printer.DetectPaperStatus();
 
