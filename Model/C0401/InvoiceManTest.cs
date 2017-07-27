@@ -10,7 +10,7 @@ namespace Plusmore.Einvoice.Common.Sample.Model.C0401
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         
-        public static Wpt810Printer Prt = new Wpt810Printer( MyConfig.PrinterPort );
+        public static Wpt810Printer Prt = new Wpt810Printer( MyConfig.PrinterPortOfWpt810 );
 
         #region ClassInitialize and Cleanup
 
