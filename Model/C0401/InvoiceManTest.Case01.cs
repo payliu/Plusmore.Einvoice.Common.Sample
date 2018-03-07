@@ -68,7 +68,7 @@ namespace Plusmore.Einvoice.Common.Sample.Model.C0401
                         TotalAmount = 300
                     },
 
-                    Extra = new InvoiceMan.InvExtra()
+                    Extra = new InvoiceMan.InvExtra
                     {
                         InvoiceNote = "餐廳409 竹北自強南 21-16\n機409021 序024859 03/22",
                         ListNote = "5日內持發票(載具)及明細換發票\n2\n3\n4\n第5行 ..."
@@ -104,7 +104,7 @@ namespace Plusmore.Einvoice.Common.Sample.Model.C0401
             im.Save( String.Format( @"{0}\C0401\C0401-{1}.json", MyConfig.Folder, im.Main.InvoiceNumber ) );
 
             // hasPrintList=true: 消費者要求列印明細 reprint=true: 消費者因為發票破損無法辨識 qrcode, barcode...再列印一張"補印字樣"的發票, 需要記錄 補印 最好限印一次 
-            im.Print( Prt, MyConfig.AesKey, hasPrintList: false, reprint: false );
+            im.Print( Prt, MyConfig.AesKey, hasPrintList: false, reprint: false, endFullCut: true );
         }
 
         /// <summary>
