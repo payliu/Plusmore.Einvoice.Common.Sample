@@ -38,20 +38,20 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\Einvoice\packages\Plusmore.Einvoice.Common.1.0.4\lib\net40\Dapper.dll</HintPath>
+      <HintPath>..\Einvoice\packages\Plusmore.Utility.1.0.6\lib\net40\Dapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DapperExtensions, Version=1.6.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\Einvoice\packages\Plusmore.Einvoice.Common.1.0.4\lib\net40\DapperExtensions.dll</HintPath>
+      <HintPath>..\Einvoice\packages\Plusmore.Utility.1.0.6\lib\net40\DapperExtensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\Einvoice\packages\Plusmore.Einvoice.Common.1.0.4\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\Einvoice\packages\Plusmore.Utility.1.0.6\lib\net40\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
-      <HintPath>..\Einvoice\packages\Plusmore.Einvoice.Common.1.0.4\lib\net40\NLog.dll</HintPath>
+      <HintPath>..\Einvoice\packages\Plusmore.Utility.1.0.6\lib\net40\NLog.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Plusmore.Einvoice.Common, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
@@ -59,15 +59,15 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Plusmore.Utility.Common, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\Einvoice\packages\Plusmore.Einvoice.Common.1.0.4\lib\net40\Plusmore.Utility.Common.dll</HintPath>
+      <HintPath>..\Einvoice\packages\Plusmore.Utility.1.0.6\lib\net40\Plusmore.Utility.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Plusmore.Utility.EscPos, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\Einvoice\packages\Plusmore.Einvoice.Common.1.0.4\lib\net40\Plusmore.Utility.EscPos.dll</HintPath>
+    <Reference Include="Plusmore.Utility.EscPos, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\Einvoice\packages\Plusmore.Utility.1.0.6\lib\net40\Plusmore.Utility.EscPos.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="QREncrypter, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\Einvoice\packages\Plusmore.Einvoice.Common.1.0.4\lib\net40\QREncrypter.dll</HintPath>
+      <HintPath>..\Einvoice\packages\Plusmore.Utility.1.0.6\lib\net40\QREncrypter.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -75,11 +75,11 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="zxing, Version=0.15.0.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
-      <HintPath>..\Einvoice\packages\Plusmore.Einvoice.Common.1.0.4\lib\net40\zxing.dll</HintPath>
+      <HintPath>..\Einvoice\packages\Plusmore.Utility.1.0.6\lib\net40\zxing.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="zxing.presentation, Version=0.15.0.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
-      <HintPath>..\Einvoice\packages\Plusmore.Utility.1.0.4\lib\net40\zxing.presentation.dll</HintPath>
+      <HintPath>..\Einvoice\packages\Plusmore.Utility.1.0.6\lib\net40\zxing.presentation.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -111,6 +111,7 @@
     <Compile Include="Model\C0501\CancelInvoiceManTests.cs" />
     <Compile Include="Model\D0401\AllowanceManTests.cs" />
     <Compile Include="Model\D0501\CancelAllowanceManTests.cs" />
+    <Compile Include="Printer\BirchBpt3bPrinterTest.cs" />
     <Compile Include="Printer\Wpk650InvoiceTests.cs" />
     <Compile Include="Printer\Wpt810InvoiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -121,9 +122,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
