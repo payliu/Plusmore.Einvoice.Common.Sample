@@ -2,6 +2,7 @@
 using NLog;
 using Plusmore.Einvoice.Common.Sample.Helper;
 using Plusmore.Utility.EscPos.Model.WinPos;
+using Plusmore.Utility.EscPos.Model.Birch;
 
 namespace Plusmore.Einvoice.Common.Sample.Model.C0401
 {
@@ -12,7 +13,9 @@ namespace Plusmore.Einvoice.Common.Sample.Model.C0401
 
         //public static Wpt810Printer Prt = new Wpt810Printer( MyConfig.PrinterPortOfWpt810 );
 
-        public static Wpk650Printer Prt = new Wpk650Printer( MyConfig.PrinterPortOfWpk650 );
+        public static Wpk650Printer Prt_Unsued = new Wpk650Printer( MyConfig.PrinterPortOfWpk650 );
+
+        public static BirchBpt3bPrinter Prt = new BirchBpt3bPrinter( MyConfig.PrinterPortOfBirchBpt3b );
 
         #region ClassInitialize and Cleanup
 
