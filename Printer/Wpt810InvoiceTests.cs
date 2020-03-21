@@ -10,6 +10,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NLog;
 using Plusmore.Einvoice.Common.Sample.Helper;
 using Plusmore.Utility.EscPos.Controller;
+using Plusmore.Utility.EscPos.Controller.Base;
 using Plusmore.Utility.EscPos.Domain;
 using Plusmore.Utility.EscPos.Model.WinPos;
 
@@ -38,26 +39,26 @@ namespace Plusmore.Einvoice.Common.Sample.Printer
                     LogoHeight = 66
                 };
 
-                _printer.ComError += ComErrorEvent;
-                _printer.ComOpened += ComOpenedEvent;
-                _printer.ComClosed += ComClosedEvent;
+                _printer.DeviceError += DeviceErrorEvent;
+                _printer.DeviceOpened += DeviceOpenedEvent;
+                _printer.DeviceClosed += DeviceClosedEvent;
 
                 return _printer;
             }
             set { _printer = value; }
         }
 
-        private static void ComErrorEvent( object o, ComMessageEventArgs e )
+        private static void DeviceErrorEvent( object o, MessageEventArgs e )
         {
             Logger.Error( e.Message );
         }
 
-        private static void ComOpenedEvent( object o, EventArgs e )
+        private static void DeviceOpenedEvent( object o, EventArgs e )
         {
             Logger.Debug( "COM opened" );
         }
 
-        private static void ComClosedEvent( object o, EventArgs e )
+        private static void DeviceClosedEvent( object o, EventArgs e )
         {
             Logger.Debug( "COM closed" );
         }
