@@ -1,8 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NLog;
 using Plusmore.Einvoice.Common.Sample.Helper;
-using Plusmore.Utility.EscPos.Model.WinPos;
+using Plusmore.Utility.EscPos.Domain;
 using Plusmore.Utility.EscPos.Model.Birch;
+using Plusmore.Utility.EscPos.Model.WinPos;
 
 namespace Plusmore.Einvoice.Common.Sample.Model.C0401
 {
