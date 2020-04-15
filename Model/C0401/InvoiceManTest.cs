@@ -1,8 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Globalization;
+using System.Threading;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NLog;
 using Plusmore.Einvoice.Common.Sample.Helper;
-using Plusmore.Utility.EscPos.Model.WinPos;
 using Plusmore.Utility.EscPos.Model.Birch;
+using Plusmore.Utility.EscPos.Model.WinPos;
 
 namespace Plusmore.Einvoice.Common.Sample.Model.C0401
 {
@@ -13,7 +15,7 @@ namespace Plusmore.Einvoice.Common.Sample.Model.C0401
 
         //public static Wpt810Printer Prt = new Wpt810Printer( MyConfig.PrinterPortOfWpt810 );
 
-        public static Wpk650Printer Prt_Unsued = new Wpk650Printer( MyConfig.PrinterPortOfWpk650 );
+        public static WinPosWpk650Printer Prt_Unsued = new WinPosWpk650Printer( MyConfig.PrinterPortOfWpk650 );
 
         public static BirchBpt3bPrinter Prt = new BirchBpt3bPrinter( MyConfig.PrinterPortOfBirchBpt3b );
 
@@ -22,6 +24,8 @@ namespace Plusmore.Einvoice.Common.Sample.Model.C0401
         [ClassInitialize]
         public static void InvoiceManTest_ClassInit( TestContext testContext )
         {
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
+                
             Prt.Open();
         }
 

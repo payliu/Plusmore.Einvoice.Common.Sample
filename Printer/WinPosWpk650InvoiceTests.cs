@@ -9,22 +9,22 @@ using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NLog;
 using Plusmore.Einvoice.Common.Sample.Helper;
-using Plusmore.Utility.EscPos.Controller;
+using Plusmore.Utility.EscPos.Controller.Base;
 using Plusmore.Utility.EscPos.Domain;
 using Plusmore.Utility.EscPos.Model.WinPos;
 
 namespace Plusmore.Einvoice.Common.Sample.Printer
 {
     [TestClass]
-    public class Wpk650InvoiceTests
+    public class WinPosWpk650InvoiceTests
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
         #region Printer
 
-        private static Wpk650Printer _printer;
+        private static WinPosWpk650Printer _printer;
 
-        public static Wpk650Printer Printer
+        public static WinPosWpk650Printer Printer
         {
             get
             {
@@ -33,31 +33,31 @@ namespace Plusmore.Einvoice.Common.Sample.Printer
                     return _printer;
                 }
 
-                _printer = new Wpk650Printer( MyConfig.PrinterPortOfWpk650 )
+                _printer = new WinPosWpk650Printer( MyConfig.PrinterPortOfWpk650 )
                 {
                     LogoHeight = 66
                 };
 
-                _printer.ComError += ComErrorEvent;
-                _printer.ComOpened += ComOpenedEvent;
-                _printer.ComClosed += ComClosedEvent;
+                _printer.DeviceError += DeviceErrorEvent;
+                _printer.DeviceOpened += DeviceOpenedEvent;
+                _printer.DeviceClosed += DeviceClosedEvent;
 
                 return _printer;
             }
             set { _printer = value; }
         }
 
-        private static void ComErrorEvent( object o, ComMessageEventArgs e )
+        private static void DeviceErrorEvent( object o, MessageEventArgs e )
         {
             Logger.Error( e.Message );
         }
 
-        private static void ComOpenedEvent( object o, EventArgs e )
+        private static void DeviceOpenedEvent( object o, EventArgs e )
         {
             Logger.Debug( "COM opened" );
         }
 
-        private static void ComClosedEvent( object o, EventArgs e )
+        private static void DeviceClosedEvent( object o, EventArgs e )
         {
             Logger.Debug( "COM closed" );
         }
