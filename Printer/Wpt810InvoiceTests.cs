@@ -9,7 +9,6 @@ using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NLog;
 using Plusmore.Einvoice.Common.Sample.Helper;
-using Plusmore.Utility.EscPos.Controller;
 using Plusmore.Utility.EscPos.Controller.Base;
 using Plusmore.Utility.EscPos.Domain;
 using Plusmore.Utility.EscPos.Model.WinPos;
@@ -23,9 +22,9 @@ namespace Plusmore.Einvoice.Common.Sample.Printer
 
         #region Printer
 
-        private static Wpt810Printer _printer;
+        private static WinPosWpt810Printer _printer;
 
-        public static Wpt810Printer Printer
+        public static WinPosWpt810Printer Printer
         {
             get
             {
@@ -34,7 +33,7 @@ namespace Plusmore.Einvoice.Common.Sample.Printer
                     return _printer;
                 }
 
-                _printer = new Wpt810Printer( MyConfig.PrinterPortOfWpt810 )
+                _printer = new WinPosWpt810Printer( MyConfig.PrinterPortOfWpt810 )
                 {
                     LogoHeight = 66
                 };

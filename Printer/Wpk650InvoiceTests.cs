@@ -22,9 +22,9 @@ namespace Plusmore.Einvoice.Common.Sample.Printer
 
         #region Printer
 
-        private static Wpk650Printer _printer;
+        private static WinPosWpk650Printer _printer;
 
-        public static Wpk650Printer Printer
+        public static WinPosWpk650Printer Printer
         {
             get
             {
@@ -33,7 +33,7 @@ namespace Plusmore.Einvoice.Common.Sample.Printer
                     return _printer;
                 }
 
-                _printer = new Wpk650Printer( MyConfig.PrinterPortOfWpk650 )
+                _printer = new WinPosWpk650Printer( MyConfig.PrinterPortOfWpk650 )
                 {
                     LogoHeight = 66
                 };
