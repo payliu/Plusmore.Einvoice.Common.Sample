@@ -16,7 +16,7 @@ using Plusmore.Utility.EscPos.Model.WinPos;
 namespace Plusmore.Einvoice.Common.Sample.Printer
 {
     [TestClass]
-    public class Wpk650InvoiceTests
+    public class WinPosWpk650InvoiceTests
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
